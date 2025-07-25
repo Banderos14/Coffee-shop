@@ -22,6 +22,9 @@ const coffeeImages = [
   { src: lightning, alt: "Cozy Space" },
   { src: instagram, alt: "Handcrafted Drinks" },
   { src: leaf, alt: "Great Coffee" },
+  { src: leaf, alt: "Local Roasts" },
+  { src: smile2, alt: "Global Flavor" },
+  { src: share, alt: "Friendly Baristas" },
   
 ];
 
