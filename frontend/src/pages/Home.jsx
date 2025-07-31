@@ -2,6 +2,7 @@ import Navbar from "../components/navbar";
 import Order from "../components/order";
 import Marquee from "../components/marquee";
 import Footer from "../components/footer";
+import Map from "../components/Map";
 
 import cups from "../../public/images/3_cups.png";
 import coffee_cup from "../assets/coffee_cup.png";
@@ -26,9 +27,9 @@ const Home = () => {
   return (
     <>
       {/* Блок с зеленым фоном */}
-    <div className="bg-[#1d4e1a]">
+      <div className="bg-[#1d4e1a]">
       <Navbar />
-      {/* Блок с текстом */}
+        {/* Блок с текстом */}
         <div className="bg-[#1d4e1a] w-full text-[#ffecb8] flex flex-col justify-start items-center gap-3 mb-8">
           <div className="w-full max-w-[680px] text-center justify-center text-[#ffecb8] text-8xl font-normal font-['Calistoga'] leading-[107.52px]">Life Begins After Coffee</div>
           <div className="w-full max-w-96 text-center justify-center text-[#ffecb8] text-lg font-normal font-['Cabin_Condensed'] leading-normal tracking-tight">Because great coffee is the start of something even greater.</div>
@@ -51,7 +52,7 @@ const Home = () => {
           <img src={cups} alt="Cups" />
         </div>
         <Marquee />
-      </div>
+      
 
       {/* Блок с текстом под лентой */}
       <div className="w-full bg-[#fcf3d9] flex justify-center items-center py-40 px-[120px]">
@@ -79,6 +80,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Блок с карточками товаров и ценами */}
       <div className="w-full bg-[#fcf3d9] border-opacity-10 border-t border-b border-[#1d4e1a] flex justify-center items-center py-40 px-[120px]">
@@ -91,7 +93,7 @@ const Home = () => {
             <div data-show-badge="true" data-state="Default" className="flex-1 inline-flex flex-col justify-start items-start gap-3">
               <div className="self-stretch h-72 relative bg-[#1d4e1a] rounded-3xl inline-flex justify-center items-center overflow-hidden">
                 <img className="flex-1 h-72 shadow-[24px_48px_120px_0px_rgba(0,0,0,0.25)]" src={cold_brew} />
-                <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#fcf3d9] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900/10 flex justify-center items-center">
+                <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#fcf3d9] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
                   <div className="justify-start text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">New</div>
                 </div>
               </div>
@@ -128,9 +130,9 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-green-900 rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 inline-flex justify-center items-center gap-2.5">
+          <a href=""><div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
             <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Explore Menu</div>
-          </div>
+          </div></a>
         </div>
       </div>
 
@@ -256,9 +258,9 @@ const Home = () => {
               <img className="self-stretch flex-1 rounded-3xl border border-[#1d4e1a]/10" src={coffee_right_block_5} />
             </div>
           </div>
-          <div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
+          <a href=""><div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
             <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Our Locations</div>
-          </div>
+          </div></a>
         </div>
       </div>
 
@@ -272,58 +274,59 @@ const Home = () => {
               <div className="w-full max-w-96 text-center justify-start text-[#fcf3d9] text-lg font-normal font-['Cabin_Condensed'] leading-normal tracking-tight">Find a Brewhaus nearby and stop in for your favorite drink.</div>
             </div>
             <div className="self-stretch inline-flex justify-start items-center gap-6">
-              <img className="flex-1 self-stretch rounded-3xl border border-[#1d4e1a]/10" src={map} />
+              {/* <img className="flex-1 self-stretch rounded-3xl border border-[#1d4e1a]/10" src={map} /> */}
+              <Map />
               <div className="flex-1 inline-flex flex-col justify-start items-start gap-6">
                 <div className="self-stretch inline-flex justify-start items-center gap-6">
                   <div className="flex-1 p-6 bg-[#fcf3d9] rounded-3xl inline-flex flex-col justify-start items-start gap-5">
                     <div className="self-stretch flex flex-col justify-start items-start gap-4">
-                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Brooklyn</div>
+                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Nice</div>
                       <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">123 Bedford Ave, Brooklyn, NY 11211</div>
+                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">47 Rue de France, 06000 Nice</div>
                         <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 7AM – 7PM</div>
                       </div>
                     </div>
-                    <div data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 inline-flex justify-center items-center gap-2.5">
+                    <a href="" data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
                       <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Get Directions</div>
-                    </div>
+                    </a>
                   </div>
                   <div className="flex-1 p-6 bg-[#fcf3d9] rounded-3xl inline-flex flex-col justify-start items-start gap-5">
                     <div className="self-stretch flex flex-col justify-start items-start gap-4">
-                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Manhattan</div>
+                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Nice</div>
                       <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">456 Spring St, New York, NY 10012</div>
-                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 7AM – 8PM</div>
+                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">2 Rue Amiral de Grasse, 06000 Nice</div>
+                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 8AM – 7PM</div>
                       </div>
                     </div>
-                    <div data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 inline-flex justify-center items-center gap-2.5">
+                    <a href="" data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
                       <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Get Directions</div>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 <div className="self-stretch inline-flex justify-start items-center gap-6">
                   <div className="flex-1 p-6 bg-[#fcf3d9] rounded-3xl inline-flex flex-col justify-start items-start gap-5">
                     <div className="self-stretch flex flex-col justify-start items-start gap-4">
-                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Queens</div>
+                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Nice</div>
                       <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">789 Broadway, Queens, NY 11106</div>
-                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 7AM – 6PM</div>
+                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">3 Pl. Franklin, 06000 Nice</div>
+                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 6AM – 8PM</div>
                       </div>
                     </div>
-                    <div data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 inline-flex justify-center items-center gap-2.5">
+                    <a href="" data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
                       <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Get Directions</div>
-                    </div>
+                    </a>
                   </div>
                   <div className="flex-1 p-6 bg-[#fcf3d9] rounded-3xl inline-flex flex-col justify-start items-start gap-5">
                     <div className="self-stretch flex flex-col justify-start items-start gap-4">
-                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Queens</div>
+                      <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Nice</div>
                       <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">134-16 36th Road, Flushing, NY 11354</div>
-                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 8AM – 6PM</div>
+                        <div className="w-full max-w-40 justify-start text-[#1d4e1a] text-base font-normal font-['Calistoga'] leading-snug tracking-tight">39 Av. Jean Médecin, 06000 Nice</div>
+                        <div className="self-stretch justify-start text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Open daily: 8AM – 7PM</div>
                       </div>
                     </div>
-                    <div data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 inline-flex justify-center items-center gap-2.5">
+                    <a href="" data-color="Green" data-state="Default" data-type="Primary" className="self-stretch px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
                       <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Get Directions</div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -358,9 +361,9 @@ const Home = () => {
         <div className="w-full max-w-[1200px] flex flex-col justify-start items-start gap-16">
           <div className="self-stretch inline-flex justify-between items-end">
             <div className="flex-1 max-w-[480px] justify-start text-[#1d4e1a] text-6xl font-normal font-['Calistoga'] leading-[74.24px]">What’s New at Our Coffee Shop</div>
-            <div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-green-900 flex justify-center items-center gap-2.5">
+            <a href="" data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] flex justify-center items-center gap-2.5">
               <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">View All</div>
-            </div>
+            </a>
           </div>
           <div className="self-stretch inline-flex justify-start items-center gap-6">
             <div data-adaptation="Desktop" data-state="Default" className="flex-1 inline-flex flex-col justify-start items-start gap-4">
@@ -390,6 +393,7 @@ const Home = () => {
       <Order />
       <Marquee />
       <Footer />
+      </div>
     </>
   );
 };
