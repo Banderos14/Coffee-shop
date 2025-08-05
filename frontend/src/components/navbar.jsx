@@ -21,13 +21,13 @@ const Navbar = () => {
          <div className="relative p-3 t-3 bg-[#1d4e1a] rounded-full flex justify-start items-center gap-10">
             <div className="flex justify-end items-center gap-8">
               <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-                <div className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Menu</div>
+                <a href="/menu" className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Menu</a>
               </div>
               <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
                 <div className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Locations</div>
               </div>
             </div>
-            <div><a href=""><img src={Logo} alt="Logo" /></a></div>
+            <div><a href="/"><img src={Logo} alt="Logo" /></a></div>
             <div className="flex justify-start items-center gap-8">
               <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
                 <div className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">About Us</div>

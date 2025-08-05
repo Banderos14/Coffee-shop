@@ -18,7 +18,7 @@ import hall from "../assets/hall_blok_4.png";
 import coffee_left_block_5 from "../assets/coffee_left_block_5.png";
 import coffee_center_block_5 from "../assets/coffee_center_block_5.png";
 import coffee_right_block_5 from "../assets/coffee_right_block_5.png";
-import map from "../assets/map.png";
+// import map from "../assets/map.png";
 import what_new_left_block_6 from "../assets/what_new_left_block_6.png";
 import what_new_center_block_6 from "../assets/what_new_center_block_6.png";
 import what_new_right_block_6 from "../assets/what_new_right_block_6.png";
