@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import ProductItem from "./pages/Product_Item";
 import './App.css'
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/product/:productId" element={<ProductItem />} />
       </Routes>
     </>
   )
