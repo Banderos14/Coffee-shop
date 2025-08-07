@@ -84,7 +84,7 @@ const Menu = () => {
                                 alt={product.name}
                               />
                               {product.isNew && (
-                                <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#fcf3d9] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
+                                <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#ffecb8] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
                                   <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">New</div>
                                 </div>
                               )}
@@ -120,7 +120,7 @@ const Menu = () => {
                                 alt={product.name}
                               />
                             {product.isNew && (
-                              <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#fcf3d9] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
+                              <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#ffecb8] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
                                 <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">New</div>
                               </div>
                             )}
@@ -156,7 +156,7 @@ const Menu = () => {
                                 alt={product.name}
                               />
                             {product.isNew && (
-                              <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#fcf3d9] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
+                              <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#ffecb8] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
                                 <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">New</div>
                               </div>
                             )}

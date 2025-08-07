@@ -1,23 +1,23 @@
-import cold_brew from "../assets/menu/cold_brew.png";
-import macchiato from "../assets/menu/macchiato.png";
-import espresso from "../assets/menu/espresso.png";
-import black_coffee from "../assets/menu/black_coffee.png";
-import cappuccino from "../assets/menu/cappuccino.png";
-import flat_white from "../assets/menu/Flat_White.png";
-import latte from "../assets/menu/latte.png";
-import mocha from "../assets/menu/mocha.png";
-import americano from "../assets/menu/americano.png";
-import virgin_mojito from "../assets/menu/virgin_mojito.png";
-import iced_latte from "../assets/menu/iced_latte.png";
-import iced_americano from "../assets/menu/iced_americano.png";
-import iced_mocha from "../assets/menu/iced_mocha.png";
-import iced_tea from "../assets/menu/iced_tea.png";
-import bubble_tea from "../assets/menu/bubble_tea.png";
-import brownie from "../assets/menu/brownie.png";
-import macaroon from "../assets/menu/macaroon.png";
-import donut from "../assets/menu/donut.png";
-import muffin from "../assets/menu/muffin.png";
-import biscotti from "../assets/menu/biscotti.png";
+import cold_brew from "../assets/menu/cold_brew.svg";
+import macchiato from "../assets/menu/macchiato.svg";
+import espresso from "../assets/menu/espresso.svg";
+import black_coffee from "../assets/menu/black_coffee.svg";
+import cappuccino from "../assets/menu/cappuccino.svg";
+import flat_white from "../assets/menu/Flat_White.svg";
+import latte from "../assets/menu/latte.svg";
+import mocha from "../assets/menu/mocha.svg";
+import americano from "../assets/menu/americano.svg";
+import virgin_mojito from "../assets/menu/virgin_mojito.svg";
+import iced_latte from "../assets/menu/iced_latte.svg";
+import iced_americano from "../assets/menu/iced_americano.svg";
+import iced_mocha from "../assets/menu/iced_mocha.svg";
+import iced_tea from "../assets/menu/iced_tea.svg";
+import bubble_tea from "../assets/menu/bubble_tea.svg";
+import brownie from "../assets/menu/brownie.svg";
+import macaroon from "../assets/menu/macaroon.svg";
+import donut from "../assets/menu/donut.svg";
+import muffin from "../assets/menu/muffin.svg";
+import biscotti from "../assets/menu/biscotti.svg";
 
 
 
@@ -35,22 +35,24 @@ const products = [
       Large: 7.75
     },
     allergens: ['None'],
+    tags: ["cold", "smooth", "strong"],
     image: cold_brew,
   },
   {
-    id: 'macchiato',
-    name: 'Macchiato',
+    id: 'mocha',
+    name: 'Mocha',
     category: "Coffee",
     isNew: true,
-    description: 'Espresso with a dash of frothy milk.',
+    description: 'Coffee mixed with chocolate and milk.',
     sizes: ['Small', 'Medium', 'Large'],
     price: {
-      Small: 6.10,
-      Medium: 6.60,
-      Large: 7.10
+      Small: 6.50,
+      Medium: 7.00,
+      Large: 7.50
     },
-    allergens: ['Milk'],
-    image: macchiato,
+    allergens: ['Milk', 'Soy'],
+    tags: ["chocolate", "milk", "sweet"],
+    image: mocha,
   },
   {
     id: 'espresso',
@@ -62,6 +64,7 @@ const products = [
       Small: 4.00
     },
     allergens: ['None'],
+    tags: ["strong", "short", "bitter"],
     image: espresso,
   },
   {
@@ -76,6 +79,7 @@ const products = [
       Large: 5.50
     },
     allergens: ['None'],
+    tags: ["strong", "bitter", "bold"],
     image: black_coffee,
   },
   {
@@ -90,6 +94,7 @@ const products = [
       Large: 7.00
     },
     allergens: ['Milk'],
+    tags: ["milk", "foam", "classic"],
     image: cappuccino,
   },
   {
@@ -104,6 +109,7 @@ const products = [
       Large: 7.20
     },
     allergens: ['Milk'],
+    tags: ["milk", "strong", "smooth"],
     image: flat_white,
   },
   {
@@ -118,27 +124,29 @@ const products = [
       Large: 7.25
     },
     allergens: ['Milk'],
+    tags: ["milk", "smooth", "creamy"],
     image: latte,
   },
   {
-    id: 'mocha',
-    name: 'Mocha',
+    id: 'macchiato',
+    name: 'Macchiato',
     category: "Coffee",
-    description: 'Coffee mixed with chocolate and milk.',
+    description: 'Espresso with a dash of frothy milk.',
     sizes: ['Small', 'Medium', 'Large'],
     price: {
-      Small: 6.50,
-      Medium: 7.00,
-      Large: 7.50
+      Small: 6.10,
+      Medium: 6.60,
+      Large: 7.10
     },
-    allergens: ['Milk', 'Soy'],
-    image: mocha,
+    allergens: ['Milk'],
+    tags: ["strong", "milk", "layered"],
+    image: macchiato,
   },
   {
     id: 'americano',
     name: 'Americano',
     category: "Coffee",
-    description: 'Espresso diluted with hot water.',
+    description: 'Our Americano is made by combining rich, full-bodied espresso with hot water, creating a perfectly balanced and smooth cup that’s lighter than espresso but stronger than regular drip coffee.',
     sizes: ['Small', 'Medium', 'Large'],
     price: {
       Small: 5.25,
@@ -146,6 +154,7 @@ const products = [
       Large: 6.25
     },
     allergens: ['None'],
+    tags: ["strong", "water", "classic"],
     image: americano,
   },
   {
@@ -161,6 +170,7 @@ const products = [
       Large: 6.75
     },
     allergens: ['None'],
+    tags: ["mint", "cold", "refreshing"],
     image: virgin_mojito,
   },
   {
@@ -175,6 +185,7 @@ const products = [
       Large: 7.00
     },
     allergens: ['Milk'],
+    tags: ["cold", "milk", "smooth"],
     image: iced_latte,
   },
   {
@@ -189,6 +200,7 @@ const products = [
       Large: 6.00
     },
     allergens: ['None'],
+    tags: ["cold", "water", "strong"],
     image: iced_americano,
   },
   {
@@ -203,6 +215,7 @@ const products = [
       Large: 7.50
     },
     allergens: ['Milk', 'Soy'],
+    tags: ["cold", "milk", "chocolate"],
     image: iced_mocha,
   },
   {
@@ -217,6 +230,7 @@ const products = [
       Large: 5.50
     },
     allergens: ['None'],
+    tags: ["cold", "refreshing", "light"],
     image: iced_tea,
   },
   {
@@ -231,6 +245,7 @@ const products = [
       Large: 6.75
     },
     allergens: ['Milk'],
+    tags: ["sweet", "cold", "milky"],
     image: bubble_tea,
   },
   {
@@ -244,6 +259,7 @@ const products = [
       Small: 4.20
     },
     allergens: ['Gluten', 'Eggs', 'Milk'],
+    tags: ["chocolate", "rich", "baked"],
     image: brownie,
   },
   {
@@ -256,6 +272,7 @@ const products = [
       Small: 3.00
     },
     allergens: ['Eggs', 'Nuts'],
+    tags: ["sweet", "light", "baked"],
     image: macaroon,
   },
   {
@@ -268,6 +285,7 @@ const products = [
       Small: 2.80
     },
     allergens: ['Gluten', 'Milk'],
+    tags: ["sweet", "fried", "classic"],
     image: donut,
   },
   {
@@ -280,6 +298,7 @@ const products = [
       Small: 3.20
     },
     allergens: ['Gluten', 'Eggs', 'Milk'],
+    tags: ["baked", "soft", "chocolate"],
     image: muffin,
   },
   {
@@ -292,6 +311,7 @@ const products = [
       Small: 2.90
     },
     allergens: ['Gluten', 'Nuts'],
+    tags: ["crunchy", "classic", "baked"],
     image: biscotti,
   }
 ];
