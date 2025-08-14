@@ -50,6 +50,8 @@ const products = [
       Medium: 7.00,
       Large: 7.50
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk', 'Soy'],
     tags: ["chocolate", "milk", "sweet"],
     image: mocha,
@@ -93,6 +95,8 @@ const products = [
       Medium: 6.50,
       Large: 7.00
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["milk", "foam", "classic"],
     image: cappuccino,
@@ -108,6 +112,8 @@ const products = [
       Medium: 6.70,
       Large: 7.20
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["milk", "strong", "smooth"],
     image: flat_white,
@@ -123,6 +129,8 @@ const products = [
       Medium: 6.75,
       Large: 7.25
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["milk", "smooth", "creamy"],
     image: latte,
@@ -138,6 +146,8 @@ const products = [
       Medium: 6.60,
       Large: 7.10
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["strong", "milk", "layered"],
     image: macchiato,
@@ -184,6 +194,8 @@ const products = [
       Medium: 6.50,
       Large: 7.00
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["cold", "milk", "smooth"],
     image: iced_latte,
@@ -214,6 +226,8 @@ const products = [
       Medium: 7.00,
       Large: 7.50
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk', 'Soy'],
     tags: ["cold", "milk", "chocolate"],
     image: iced_mocha,
@@ -244,6 +258,8 @@ const products = [
       Medium: 6.25,
       Large: 6.75
     },
+    milkOptions: ['Coconut', 'Soy', 'Oat', 'Almond'],
+    milkPrice: 0.50,
     allergens: ['Milk'],
     tags: ["sweet", "cold", "milky"],
     image: bubble_tea,

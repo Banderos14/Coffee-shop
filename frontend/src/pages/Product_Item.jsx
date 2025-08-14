@@ -1,12 +1,21 @@
 import Logo from '../assets/Logo.svg';
+import React, { useState } from 'react';
 
 import { useParams, Link} from 'react-router-dom';
 import { products } from '../data/productData';
+import Order from '../components/order';
+import Footer from '../components/footer';
+import Marquee from '../components/marquee';
 
 export default function ProductItem() {
     const { productId } = useParams();
     const product = products.find((p) => p.id === productId);
     const related = getRelatedProducts(product, products);
+
+
+    const milkOpts = Array.isArray(product.milkOptions) ? product.milkOptions : [];
+    const milkUp = typeof product.milkPrice === 'number' ? product.milkPrice : null;
+    const [selectedMilk, setSelectedMilk] = useState(null); // 'Oat' | 'Almond' | 'Soy' | 'Coconut' | null
 
   if (!product) {
     return <div className="p-10">Product not found.</div>;
@@ -61,11 +70,151 @@ export default function ProductItem() {
           <div className="self-stretch flex flex-col justify-start items-start gap-5">
             <div className="self-stretch flex flex-col justify-start items-start gap-1">
               <div className="self-stretch justify-start text-[#1d4e1a] text-5xl font-normal font-['Calistoga'] leading-[51.04px]">{product.name}</div>
-              <div className="self-stretch justify-start text-[#1d4e1a]/70 text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">$5.30</div>
+              <div className="self-stretch justify-start text-[#1d4e1a]/70 text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">{product.price.Small && `$${product.price.Small.toFixed(2)}`}</div>
             </div>
             <div className="w-full max-w-96 justify-start text-[#1d4e1a] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">{product.description}</div>
           </div>
           <div className="self-stretch flex flex-col justify-start items-start gap-6">
+
+            {/* Milk Options */}
+          {milkOpts.length > 0 && (
+            <div className="self-stretch pt-5 border-t border-[#1d4e1a]/10 flex flex-col justify-start items-start gap-3">
+              {/* Заголовок с правой частью как у Sizes */}
+              <div className="self-stretch flex items-center justify-between">
+                <div className="text-[#1d4e1a]/70 text-base font-['Calistoga'] leading-snug">
+                  Milk Options {milkUp != null ? `(+$ ${milkUp.toFixed(2)} any vegan milk)` : ''}
+                </div>
+                {/* Правый ценник — появляется при выборе молока */}
+                {selectedMilk && milkUp != null && (
+                  <div className="text-[#1d4e1a]/70 text-sm font-['Cabin_Condensed']">
+                    +$ {milkUp.toFixed(2)}
+                  </div>
+                )}
+              </div>
+                    
+              <div className="self-stretch inline-flex flex-wrap gap-1.5">
+                {milkOpts.includes('Almond') && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedMilk('Almond')}
+                    className={
+                      "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                      (selectedMilk === 'Almond'
+                        ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
+                        : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
+                    }
+                  >
+                    <span className="text-sm font-['Cabin_Condensed']">Almond</span>
+                    {milkUp != null && (
+                      <span className={selectedMilk === 'Almond'
+                        ? "text-[#ffecb8]/80 text-sm font-['Cabin_Condensed']"
+                        : "text-[#1d4e1a]/70 text-sm font-['Cabin_Condensed']"}>
+                        (+$ {milkUp.toFixed(2)})
+                      </span>
+                    )}
+                  </button>
+                )}
+          
+                {milkOpts.includes('Oat') && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedMilk('Oat')}
+                    className={
+                      "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                      (selectedMilk === 'Oat'
+                        ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
+                        : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
+                    }
+                  >
+                    <span className="text-sm font-['Cabin_Condensed']">Oat</span>
+                    {milkUp != null && (
+                      <span className={selectedMilk === 'Oat'
+                        ? "text-[#ffecb8]/80 text-sm font-['Cabin_Condensed']"
+                        : "text-[#1d4e1a]/70 text-sm font-['Cabin_Condensed']"}>
+                        (+$ {milkUp.toFixed(2)})
+                      </span>
+                    )}
+                  </button>
+                )}
+          
+                {milkOpts.includes('Coconut') && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedMilk('Coconut')}
+                    className={
+                      "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                      (selectedMilk === 'Coconut'
+                        ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
+                        : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
+                    }
+                  >
+                    <span className="text-sm font-['Cabin_Condensed']">Coconut</span>
+                    {milkUp != null && (
+                      <span className={selectedMilk === 'Coconut'
+                        ? "text-[#ffecb8]/80 text-sm font-['Cabin_Condensed']"
+                        : "text-[#1d4e1a]/70 text-sm font-['Cabin_Condensed']"}>
+                        (+$ {milkUp.toFixed(2)})
+                      </span>
+                    )}
+                  </button>
+                )}
+          
+                {milkOpts.includes('Soy') && (
+                  <button
+                    type="button"
+                    onClick={() => setSelectedMilk('Soy')}
+                    className={
+                      "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                      (selectedMilk === 'Soy'
+                        ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
+                        : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
+                    }
+                  >
+                    <span className="text-sm font-['Cabin_Condensed']">Soy</span>
+                    {milkUp != null && (
+                      <span className={selectedMilk === 'Soy'
+                        ? "text-[#ffecb8]/80 text-sm font-['Cabin_Condensed']"
+                        : "text-[#1d4e1a]/70 text-sm font-['Cabin_Condensed']"}>
+                        (+$ {milkUp.toFixed(2)})
+                      </span>
+                    )}
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
+            {Object.keys(product.price).length > 1 && (
+              <div className="self-stretch pt-5 border-t border-[#1d4e1a]/10 flex flex-col justify-start items-start gap-3">
+                <div className="self-stretch justify-start text-[#1d4e1a]/70 text-base font-normal font-['Calistoga'] leading-snug tracking-tight">
+                  Available Sizes
+                </div>
+                <div className="self-stretch inline-flex justify-start items-center gap-1.5 flex-wrap content-center">
+                  {product.price.Small && (
+                    <div className="px-2 py-1 bg-[#1d4e1a]/5 rounded-md outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center gap-1">
+                      <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed']">Small</div>
+                    </div>
+                  )}
+                  {product.price.Medium && (
+                    <div className="px-2 py-1 bg-[#1d4e1a]/5 rounded-md outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center gap-1">
+                      <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed']">Medium</div>
+                      <div className="text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed']">
+                        (+$ {Number(product.price.Medium).toFixed(2)})
+                      </div>
+                    </div>
+                  )}
+                  {product.price.Large && (
+                    <div className="px-2 py-1 bg-[#1d4e1a]/5 rounded-md outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center gap-1">
+                      <div className="text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed']">Large</div>
+                      <div className="text-[#1d4e1a]/70 text-sm font-normal font-['Cabin_Condensed']">
+                        (+$ {Number(product.price.Large).toFixed(2)})
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+
             {Object.keys(product.price).length > 1 && (
               <div className="self-stretch pt-5 border-t border-[#1d4e1a]/10 flex flex-col justify-start items-start gap-3">
                 <div className="self-stretch justify-start text-[#1d4e1a]/70 text-base font-normal font-['Calistoga'] leading-snug tracking-tight">
@@ -139,7 +288,7 @@ export default function ProductItem() {
 
       {/* Add to Cart */}
       {related.length > 0 && (
-      <div className="self-stretch px-10 py-40 inline-flex flex-col justify-start items-center">
+      <div className="self-stretch px-10 py-[140px] inline-flex flex-col justify-start items-center">
         <div className="w-full max-w-[960px] flex flex-col justify-start items-center gap-12">
           <div className="self-stretch inline-flex justify-between items-center">
             <div className="flex-1 max-w-80 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">You’ll Love These Too</div>
@@ -170,6 +319,12 @@ export default function ProductItem() {
         </div>
       </div>
     )}
+
+    
+
+    <Order/>
+    <Marquee/>
+    <Footer/>
   </div>
   );
 }
