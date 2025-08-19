@@ -36,7 +36,7 @@ const Home = () => {
         </div>
         {/* Блок с кнопками */}
         <div className="bg-[#1d4e1a] w-full flex justify-center items-start gap-2.5 mb-12">
-          <a href="">
+          <a href="/menu">
             <div className="px-4 pt-2.5 pb-3 bg-[#ffecb8] rounded-full outline outline-1 outline-offset-[-1px] outline-[#ffecb8] flex justify-center items-center gap-2.5">
               <div className="text-center justify-start text-[#1d4e1a] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Explore Menu</div>
             </div>
