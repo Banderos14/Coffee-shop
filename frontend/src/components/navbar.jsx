@@ -9,7 +9,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="sticky top-0 z-50 flex flex-col items-center gap-8 mb-[60px]">
+    <div className="sticky top-0 z-50 flex flex-col items-center mb-[60px]">
         {/* Block over navbar */}
         {showBanner && (
         <div className="w-full bg-[#ffecb8] border-b border-green-900/10 px-1 py-1.5 flex items-center relative">
@@ -38,7 +38,7 @@ const Navbar = () => {
       )}
 
          {/* Navbar */}
-         <div className="relative p-3 t-3 bg-[#1d4e1a] rounded-full flex justify-start items-center gap-10">
+         <div className="relative mt-8 p-3 t-3 bg-[#1d4e1a] rounded-full flex justify-start items-center gap-10">
             <div className="flex justify-end items-center gap-8">
               <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
                 <a href="/menu" className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Menu</a>

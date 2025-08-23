@@ -76,8 +76,7 @@ const Menu = () => {
             </div>
 
             {/* ☕️ COFFEE */}
-          <div ref={coffeeRef}>
-            <div className="flex-1 inline-flex flex-col justify-start items-start gap-16">
+            <div ref={coffeeRef} className="flex-1 inline-flex flex-col justify-start items-start gap-16">
               <div className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
                   <div className="flex-1 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">Coffee</div>
@@ -112,11 +111,9 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
               {/* ☕️ COLD DRINKS */}
-            <div ref={coldRef}>
-              <div className="self-stretch flex flex-col justify-start items-start gap-10">
+              <div ref={coldRef} className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
                   <div className="flex-1 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">Cold Drinks</div>
                   <div className="justify-start text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">6 Items</div>
@@ -150,11 +147,9 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
-            </div>
 
               {/* 🥐 BAKERY */}
-            <div ref={bakeryRef}>
-              <div className="self-stretch flex flex-col justify-start items-start gap-10">
+              <div ref={bakeryRef} className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
                   <div className="flex-1 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">Bakery</div>
                   <div className="justify-start text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">5 Items</div>
@@ -189,7 +184,6 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
-            </div>
           </div>
           </div>
         </div>

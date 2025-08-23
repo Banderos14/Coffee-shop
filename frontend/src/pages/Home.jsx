@@ -130,7 +130,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <a href=""><div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
+          <a href="/menu"><div data-color="Green" data-state="Default" data-type="Primary" className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] inline-flex justify-center items-center gap-2.5">
             <div className="text-center justify-start text-[#fcf3d9] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Explore Menu</div>
           </div></a>
         </div>
