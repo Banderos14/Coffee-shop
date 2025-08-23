@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { products } from '../data/productData';
+import { useRef } from 'react'
 
 import Navbar from "../components/navbar";
 import Order from "../components/order";
@@ -12,7 +13,22 @@ import logo_bakery from "../assets/menu/logo_bakery.png";
 import logo_cold_drinks from "../assets/menu/logo_cold_drinks.png";
 
 
+
 const Menu = () => {
+
+  const coffeeRef = useRef(null)
+  const coldRef = useRef(null)
+  const bakeryRef = useRef(null)
+
+  const scrollTo = (ref) => {
+    if (!ref.current) return
+    // Если есть фиксированный navbar, можно учесть оффсет:
+    const top = ref.current.getBoundingClientRect().top + window.pageYOffset - 96 // 96px — высота хедера
+    window.scrollTo({ top, behavior: 'smooth' })
+  }
+
+
+  
   return (
     <>
     {/* Блок с зеленым фоном */}
@@ -42,28 +58,25 @@ const Menu = () => {
           <div className="w-full max-w-[1200px] inline-flex justify-start items-start gap-6">
             <div className="flex-1 max-w-72 inline-flex flex-col justify-start items-center gap-5">
               <div className="self-stretch inline-flex flex-col justify-start items-center gap-5">
-                <div className="self-stretch inline-flex justify-start items-center gap-4">
-                    <div className="flex items-center justify-center">
-                        <img src={logo_coffee} alt="coffee" />
-                    </div>
-                    <div className="text-[#1d4e1a] text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">Coffee</div>
-                </div>
-                <div className="self-stretch inline-flex justify-start items-center gap-4 opacity-70">
-                    <div className="flex items-center justify-center">
-                        <img src={logo_cold_drinks} alt="cold drinks" />
-                    </div>
-                    <div className="text-[#1d4e1a] text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">Cold Drinks</div>
-                </div>
-                <div className="self-stretch inline-flex justify-start items-center gap-4 opacity-70">
-                    <div className="flex items-center justify-center">
-                        <img src={logo_bakery} alt="bakery" />
-                    </div>
-                    <div className="text-[#1d4e1a] text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">Bakery</div>
-                </div>
+                <button onClick={() => scrollTo(coffeeRef)} className="self-stretch inline-flex justify-start items-center gap-4">
+                  <img src={logo_coffee} alt="coffee" />
+                  <div className="text-[#1d4e1a] text-xl font-['Calistoga']">Coffee</div>
+                </button>
+
+                <button onClick={() => scrollTo(coldRef)} className="self-stretch inline-flex justify-start items-center gap-4 opacity-70 hover:opacity-100">
+                  <img src={logo_cold_drinks} alt="cold drinks" />
+                  <div className="text-[#1d4e1a] text-xl font-['Calistoga']">Cold Drinks</div>
+                </button>
+
+                <button onClick={() => scrollTo(bakeryRef)} className="self-stretch inline-flex justify-start items-center gap-4 opacity-70 hover:opacity-100">
+                  <img src={logo_bakery} alt="bakery" />
+                  <div className="text-[#1d4e1a] text-xl font-['Calistoga']">Bakery</div>
+                </button>
               </div>
             </div>
 
             {/* ☕️ COFFEE */}
+          <div ref={coffeeRef}>
             <div className="flex-1 inline-flex flex-col justify-start items-start gap-16">
               <div className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
@@ -99,8 +112,10 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
               {/* ☕️ COLD DRINKS */}
+            <div ref={coldRef}>
               <div className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
                   <div className="flex-1 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">Cold Drinks</div>
@@ -135,8 +150,10 @@ const Menu = () => {
                   </div>
                 </div>
               </div>
+            </div>
 
               {/* 🥐 BAKERY */}
+            <div ref={bakeryRef}>
               <div className="self-stretch flex flex-col justify-start items-start gap-10">
                 <div className="self-stretch pt-10 border-t border-[#1d4e1a]/10 inline-flex justify-start items-end gap-5">
                   <div className="flex-1 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">Bakery</div>
@@ -173,6 +190,7 @@ const Menu = () => {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
         {/* Блок с заказом */}
