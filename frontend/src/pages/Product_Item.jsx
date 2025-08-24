@@ -6,8 +6,7 @@ import { products } from '../data/productData';
 import Order from '../components/order';
 import Footer from '../components/footer';
 import Marquee from '../components/marquee';
-import CoffeeCartButton from '../components/buttons/CoffeeCartButton';
-
+import AddToCartButton from '../components/button/AddToCartButton';
 
 export default function ProductItem() {
     const { productId } = useParams();
@@ -92,8 +91,16 @@ export default function ProductItem() {
           <div className="flex-1 h-96 max-w-96 max-h-96 bg-[#1d4e1a] rounded-3xl flex justify-center items-center overflow-hidden">
             <img className="flex-1 h-96 shadow-[24px_48px_120px_0px_rgba(0,0,0,0.25)]" src={product.image} alt={product.name} />
           </div>
-          <div className='flex justify-center '>
-            <CoffeeCartButton label="Add to cart" />
+          <div className="flex justify-center">
+            <AddToCartButton
+              label="Add to cart"
+              onAdd={async () => {
+                // здесь твоя логика добавления товара в корзину
+                // пример: cart.add({ product, size: selectedSize, milk: selectedMilk, syrup: selectedSyrup, price: totalPrice });
+                await new Promise(r => setTimeout(r, 300)); // имитация запроса
+              }}
+              disabled={false /* например: !selectedSize */}
+            />
           </div>
         </div>
         <div className="flex-1 inline-flex flex-col justify-start items-start gap-8">
