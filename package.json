@@ -1,0 +1,11 @@
+{
+  "name": "coffee-shop-root",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "npm --prefix frontend run dev",
+    "install:all": "npm --prefix frontend install"
+  },
+  "description": "Root helper package.json to run the frontend dev server from project root.",
+  "license": "MIT"
+}

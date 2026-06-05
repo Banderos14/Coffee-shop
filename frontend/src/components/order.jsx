@@ -1,13 +1,10 @@
-import hands_logo from "../assets/hands_logo.svg";
-
-
 const Order = () => {
     return (
       <div className="w-full self-stretch px-10 pt-20 pb-24 bg-[#fcf3d9] border-opacity-10 border-t border-b border-[#1d4e1a] inline-flex flex-col justify-start items-center">
         <div className="w-full max-w-[1200px] flex flex-col justify-start items-center gap-10">
           <div className="self-stretch flex flex-col justify-start items-center gap-5">
             <div data-svg-wrapper className="relative">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns={hands_logo}>
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M29.1203 7.92342C29.9806 6.17403 28.8621 4.91219 27.672 6.30309C26.7973 7.33552 25.5642 10.2751 25.7792 10.8343C26.2811 12.1105 27.6577 10.906 29.1203 7.92342Z" fill="#1D4E1A"/>
               <path d="M20.5598 11.4507C21.4632 11.7375 21.7787 11.2069 21.6783 9.57228C21.4632 6.34595 20.4738 5.01241 18.7817 5.68635C17.9788 6.00181 19.5561 11.1353 20.5598 11.4507Z" fill="#1D4E1A"/>
               <path d="M11.5119 12.2827C13.548 13.8026 14.9676 14.4766 15.6845 14.2185C16.5736 13.903 16.4302 13.6019 14.8099 12.3257C12.745 10.6767 11.6122 10.1892 10.5224 10.4759C9.74809 10.6767 9.99191 11.1355 11.5119 12.2827Z" fill="#1D4E1A"/>
