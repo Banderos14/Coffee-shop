@@ -17,6 +17,22 @@ a {
   text-decoration: inherit;
 }
 
+/* Fluid display headings: shrink on small screens, cap at the original desktop size */
+@layer components {
+  .heading-hero {
+    font-size: clamp(3rem, 12vw, 6rem);       /* 48px → 96px (text-8xl) */
+    line-height: 1.12;                         /* 107.52px at 96px */
+  }
+  .heading-section {
+    font-size: clamp(2.25rem, 8vw, 3.75rem);  /* 36px → 60px (text-6xl) */
+    line-height: 1.24;                         /* 74.24px at 60px */
+  }
+  .heading-product {
+    font-size: clamp(2.25rem, 7vw, 3rem);     /* 36px → 48px (text-5xl) */
+    line-height: 1.07;                         /* 51.04px at 48px */
+  }
+}
+
 /* Marquee scroll animation */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -31,7 +47,7 @@ a {
 /* === AddToCart animation === */
 .add2cart-btn {
   position: relative; display: inline-flex; align-items: center; justify-content: center;
-  min-width: 200px; height: 56px; padding: 12px 20px; border: 0; border-radius: 12px;
+  min-width: 200px; max-width: 100%; height: 56px; padding: 12px 20px; border: 0; border-radius: 12px;
   background: #1d4e1a; color: #ffecb8; font: 600 16px/1.1 "Cabin_Condensed", system-ui, sans-serif;
   cursor: pointer; overflow: hidden; box-shadow: 0 10px 30px rgba(29, 78, 26, .28);
   transition: background .2s ease, transform .12s ease, opacity .2s ease;

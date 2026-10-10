@@ -1,21 +1,46 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo.svg';
 
-const Navbar = () => {
-  const [showBanner, setShowBanner] = useState(true);
+// Only "Menu" has a route for now; the rest are placeholders (same as before).
+const leftItems = [{ label: 'Menu', to: '/menu' }, { label: 'Locations' }];
+const rightItems = [{ label: 'About Us' }, { label: 'News' }];
+
+const textStyle = "text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight";
+
+const NavItem = ({ item, className, onClick }) =>
+  item.to ? (
+    <Link to={item.to} className={className} onClick={onClick}>{item.label}</Link>
+  ) : (
+    <span className={className}>{item.label}</span>
+  );
+
+const Navbar = ({ showBanner: bannerEnabled = true, className = "mb-10 lg:mb-[60px]" }) => {
+  const [showBanner, setShowBanner] = useState(bannerEnabled);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="sticky top-0 z-50 flex flex-col items-center mb-[60px]">
+    // The sticky wrapper spans the full width; let clicks pass through its empty areas.
+    <div className={`sticky top-0 z-50 w-full flex flex-col items-center pointer-events-none ${className}`}>
       {/* Block over navbar */}
       {showBanner && (
-        <div className="w-full bg-[#ffecb8] border-b border-green-900/10 px-1 py-1.5 flex items-center relative">
-          <div className="flex-1 text-center text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">
+        <div className="pointer-events-auto w-full bg-[#ffecb8] border-b border-green-900/10 px-2 py-1.5 flex items-center gap-1 relative">
+          <div className="flex-1 pl-8 text-center text-[#1d4e1a] text-sm font-normal font-['Cabin_Condensed'] leading-tight sm:leading-none tracking-wide">
             Buy one coffee, get one free — this week only (September 14–20)
           </div>
           <button
+            type="button"
             onClick={() => setShowBanner(false)}
-            className="p-1 ml-auto"
+            className="shrink-0 w-8 h-8 -my-1 flex items-center justify-center rounded-full"
             aria-label="Close banner"
           >
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,28 +53,77 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Navbar */}
-      <div className="relative mt-8 p-3 t-3 bg-[#1d4e1a] rounded-full flex justify-start items-center gap-10">
+      {/* Navbar — desktop / tablet pill */}
+      <nav aria-label="Main" className="pointer-events-auto hidden md:flex relative mt-8 p-3 bg-[#1d4e1a] rounded-full justify-start items-center gap-10">
         <div className="flex justify-end items-center gap-8">
-          <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-            <Link to="/menu" className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Menu</Link>
-          </div>
-          <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-            <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Locations</span>
-          </div>
+          {leftItems.map((item) => (
+            <div key={item.label} className="px-2 pt-0.5 pb-1 flex justify-center items-center">
+              <NavItem item={item} className={`justify-start ${textStyle}`} />
+            </div>
+          ))}
         </div>
         <div>
-          <Link to="/"><img src={Logo} alt="Logo" /></Link>
+          <Link to="/"><img src={Logo} alt="Logo" width="40" height="40" /></Link>
         </div>
         <div className="flex justify-start items-center gap-8">
-          <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-            <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">About Us</span>
-          </div>
-          <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-            <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">News</span>
-          </div>
+          {rightItems.map((item) => (
+            <div key={item.label} className="px-2 pt-0.5 pb-1 flex justify-center items-center">
+              <NavItem item={item} className={`justify-start ${textStyle}`} />
+            </div>
+          ))}
         </div>
-      </div>
+      </nav>
+
+      {/* Navbar — phone pill: menu toggle · logo · Menu link */}
+      <nav aria-label="Main" className="pointer-events-auto md:hidden relative mt-6 p-1.5 bg-[#1d4e1a] rounded-full flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav-panel"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          className="w-11 h-11 flex items-center justify-center rounded-full text-[#ffecb8] active:bg-[#ffecb8]/10"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+            {menuOpen ? (
+              <path d="M6 6l12 12M18 6L6 18" />
+            ) : (
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            )}
+          </svg>
+        </button>
+        <Link to="/" onClick={closeMenu} className="flex items-center justify-center">
+          <img src={Logo} alt="Logo" width="40" height="40" />
+        </Link>
+        <Link
+          to="/menu"
+          onClick={closeMenu}
+          className={`h-11 px-3 flex items-center rounded-full active:bg-[#ffecb8]/10 ${textStyle}`}
+        >
+          Menu
+        </Link>
+
+        {menuOpen && (
+          <div
+            id="mobile-nav-panel"
+            className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[calc(100vw-2rem)] max-w-xs max-h-[calc(100dvh-7rem)] overflow-y-auto p-2 bg-[#1d4e1a] rounded-3xl outline outline-1 outline-[#ffecb8]/15 shadow-[0_16px_40px_rgba(0,0,0,0.35)] flex flex-col"
+          >
+            {[{ label: 'Home', to: '/' }, ...leftItems, ...rightItems].map((item) => (
+              <NavItem
+                key={item.label}
+                item={item}
+                onClick={closeMenu}
+                className={`min-h-12 px-4 flex items-center rounded-2xl ${item.to ? 'active:bg-[#ffecb8]/10' : ''} ${textStyle}`}
+              />
+            ))}
+          </div>
+        )}
+      </nav>
+
+      {/* Tap outside the open panel to close it */}
+      {menuOpen && (
+        <div className="pointer-events-auto md:hidden fixed inset-0 -z-10" aria-hidden="true" onClick={closeMenu} />
+      )}
     </div>
   );
 };

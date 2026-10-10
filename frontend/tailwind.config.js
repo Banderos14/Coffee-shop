@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        // Touch-first devices (phones/tablets): enlarge tap targets without touching desktop.
+        touch: { raw: '(pointer: coarse)' },
+      },
       animation: {
         'scroll-right': 'scrollRight 20s linear infinite',
       },
