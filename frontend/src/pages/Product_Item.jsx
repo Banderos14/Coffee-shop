@@ -1,7 +1,7 @@
-import Logo from '../assets/Logo.svg';
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data/productData';
+import Navbar from '../components/navbar';
 import Order from '../components/order';
 import Footer from '../components/footer';
 import Marquee from '../components/marquee';
@@ -52,36 +52,18 @@ export default function ProductItem() {
 
   return (
     <div className="flex flex-col items-center bg-[#fcf3d9]">
-      {/* Navbar */}
-      <div className="sticky top-8 z-50 flex flex-col items-center gap-8 mb-[90px]">
-        <div className="relative p-3 t-3 bg-[#1d4e1a] rounded-full flex justify-start items-center gap-10">
-          <div className="flex justify-end items-center gap-8">
-            <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-              <Link to="/menu" className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Menu</Link>
-            </div>
-            <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-              <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Locations</span>
-            </div>
-          </div>
-          <div><Link to="/"><img src={Logo} alt="Logo" /></Link></div>
-          <div className="flex justify-start items-center gap-8">
-            <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-              <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">About Us</span>
-            </div>
-            <div className="px-2 pt-0.5 pb-1 flex justify-center items-center">
-              <span className="justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">News</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Navbar adds its own 32px top offset in flow, so 58px here matches the original 90px gap */}
+      <Navbar showBanner={false} className="mb-12 lg:mb-[58px]" />
 
       {/* Product Details */}
-      <div className="w-full max-w-[960px] inline-flex justify-start items-start gap-12 px-10">
-        <div className='flex flex-col justify-start items-center gap-6'>
-          <div className="flex-1 h-96 max-w-96 max-h-96 bg-[#1d4e1a] rounded-3xl flex justify-center items-center overflow-hidden">
-            <img className="flex-1 h-96 shadow-[24px_48px_120px_0px_rgba(0,0,0,0.25)]" src={product.image} alt={product.name} />
+      {/* Phone: image → details → add to cart. md+: image and button on the left, details on the right. */}
+      <div className="w-full max-w-[960px] px-4 sm:px-10 grid grid-cols-1 md:grid-cols-[auto_minmax(0,1fr)] md:grid-rows-[auto_1fr] gap-x-12 gap-y-8 md:gap-y-6">
+        <div className="md:col-start-1 md:row-start-1 flex justify-center">
+          <div className="w-full max-w-96 md:w-72 lg:w-96 aspect-square bg-[#1d4e1a] rounded-3xl flex justify-center items-center overflow-hidden">
+            <img className="w-full h-full object-cover shadow-[24px_48px_120px_0px_rgba(0,0,0,0.25)]" src={product.image} alt={product.name} />
           </div>
-          <div className="flex justify-center">
+        </div>
+        <div className="order-last md:order-none md:col-start-1 md:row-start-2 self-start flex justify-center">
             <AddToCartButton
               label="Add to cart"
               onAdd={async () => {
@@ -89,12 +71,11 @@ export default function ProductItem() {
               }}
               disabled={false}
             />
-          </div>
         </div>
-        <div className="flex-1 inline-flex flex-col justify-start items-start gap-8">
+        <div className="md:col-start-2 md:row-start-1 md:row-span-2 min-w-0 flex flex-col justify-start items-start gap-8">
           <div className="self-stretch flex flex-col justify-start items-start gap-5">
             <div className="self-stretch flex flex-col justify-start items-start gap-1">
-              <div className="self-stretch justify-start text-[#1d4e1a] text-5xl font-normal font-['Calistoga'] leading-[51.04px]">{product.name}</div>
+              <h1 className="self-stretch justify-start text-[#1d4e1a] heading-product font-normal font-['Calistoga'] break-words">{product.name}</h1>
               <div className="self-stretch justify-start text-[#1d4e1a]/70 text-xl font-normal font-['Calistoga'] leading-normal tracking-tight">${totalPrice.toFixed(2)}</div>
             </div>
             <div className="w-full max-w-96 justify-start text-[#1d4e1a] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">{product.description}</div>
@@ -117,7 +98,7 @@ export default function ProductItem() {
                       type="button"
                       onClick={() => setSelectedMilk(prev => prev === milk ? null : milk)}
                       className={
-                        "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                        "px-2 py-1 touch:min-h-10 touch:px-3 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
                         (selectedMilk === milk
                           ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
                           : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
@@ -146,7 +127,7 @@ export default function ProductItem() {
                       type="button"
                       onClick={() => setSelectedSyrup(prev => prev === syrup ? null : syrup)}
                       className={
-                        "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                        "px-2 py-1 touch:min-h-10 touch:px-3 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
                         (selectedSyrup === syrup
                           ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
                           : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
@@ -177,7 +158,7 @@ export default function ProductItem() {
                       type="button"
                       onClick={() => setSelectedSize(size)}
                       className={
-                        "px-2 py-1 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
+                        "px-2 py-1 touch:min-h-10 touch:px-3 rounded-md outline outline-1 outline-offset-[-1px] flex items-center gap-1 " +
                         (selectedSize === size
                           ? "bg-[#1d4e1a] outline-[#1d4e1a] text-[#ffecb8]"
                           : "bg-[#1d4e1a]/5 outline-[#1d4e1a]/10 text-[#1d4e1a]")
@@ -228,19 +209,18 @@ export default function ProductItem() {
 
       {/* Related Products */}
       {related.length > 0 && (
-        <div className="self-stretch px-10 py-[140px] inline-flex flex-col justify-start items-center">
-          <div className="w-full max-w-[960px] flex flex-col justify-start items-center gap-12">
-            <div className="self-stretch inline-flex justify-between items-center">
-              <div className="flex-1 max-w-80 justify-start text-[#1d4e1a] text-3xl font-normal font-['Calistoga'] leading-9 tracking-tight">You'll Love These Too</div>
-              <div className="px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] flex justify-center items-center gap-2.5">
-                <Link to="/menu" className="text-center justify-start text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Explore Menu</Link>
-              </div>
+        <div className="self-stretch px-4 sm:px-10 py-20 lg:py-[140px] inline-flex flex-col justify-start items-center">
+          <div className="w-full max-w-[960px] flex flex-col justify-start items-center gap-8 lg:gap-12">
+            <div className="self-stretch inline-flex justify-between items-center gap-4">
+              <div className="flex-1 max-w-80 justify-start text-[#1d4e1a] text-2xl sm:text-3xl font-normal font-['Calistoga'] leading-tight sm:leading-9 tracking-tight">You'll Love These Too</div>
+              <Link to="/menu" className="shrink-0 px-4 pt-2.5 pb-3 bg-[#1d4e1a] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a] flex justify-center items-center gap-2.5 text-center text-[#ffecb8] text-base font-normal font-['Cabin_Condensed'] leading-tight tracking-tight">Explore Menu</Link>
             </div>
-            <div className="self-stretch inline-flex justify-start items-center gap-6">
+            {/* Phone: swipeable row (scrolls inside itself); sm+: three-column grid */}
+            <div className="self-stretch flex sm:grid sm:grid-cols-3 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0">
               {related.map((item) => (
-                <Link to={`/product/${item.id}`} key={item.id}>
+                <Link to={`/product/${item.id}`} key={item.id} className="shrink-0 w-[72%] sm:w-auto snap-start">
                   <div className="flex flex-col gap-3">
-                    <div className="h-72 bg-[#1d4e1a] rounded-3xl flex justify-center items-center overflow-hidden relative">
+                    <div className="aspect-square lg:aspect-auto lg:h-72 bg-[#1d4e1a] rounded-3xl flex justify-center items-center overflow-hidden relative">
                       <img className="w-full h-full object-cover" src={item.image} alt={item.name} />
                       {item.isNew && (
                         <div className="px-2 pt-0.5 pb-1 left-[16px] top-[16px] absolute bg-[#ffecb8] rounded-full outline outline-1 outline-offset-[-1px] outline-[#1d4e1a]/10 flex justify-center items-center">
@@ -248,9 +228,9 @@ export default function ProductItem() {
                         </div>
                       )}
                     </div>
-                    <div className="flex justify-between items-center px-2">
-                      <div className="text-[#1d4e1a] text-xl font-['Calistoga']">{item.name}</div>
-                      <div className="text-[#1d4e1a]/70 text-xl font-['Calistoga']">${item.price?.Small.toFixed(2)}</div>
+                    <div className="flex justify-between items-baseline gap-2 px-2">
+                      <div className="min-w-0 text-[#1d4e1a] text-lg sm:text-xl font-['Calistoga']">{item.name}</div>
+                      <div className="shrink-0 text-[#1d4e1a]/70 text-lg sm:text-xl font-['Calistoga']">${item.price?.Small.toFixed(2)}</div>
                     </div>
                   </div>
                 </Link>

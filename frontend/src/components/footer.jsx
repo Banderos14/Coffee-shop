@@ -2,10 +2,10 @@
 const Footer = () => {
     return (
         <div className="w-full self-stretch bg-[#1d4e1a] inline-flex flex-col justify-start items-center">
-          <div className="self-stretch px-10 pt-20 pb-8 flex flex-col justify-start items-center">
-            <div className="w-full max-w-[1200px] flex flex-col justify-start items-start gap-28">
-              <div className="self-stretch inline-flex justify-between items-start">
-                <div className="flex-1 max-w-72 inline-flex flex-col justify-start items-start gap-7">
+          <div className="self-stretch px-4 sm:px-10 pt-16 lg:pt-20 pb-8 flex flex-col justify-start items-center">
+            <div className="w-full max-w-[1200px] flex flex-col justify-start items-start gap-16 lg:gap-28">
+              <div className="self-stretch flex flex-col md:flex-row justify-between items-start gap-12 md:gap-6">
+                <div className="w-full md:flex-1 max-w-72 inline-flex flex-col justify-start items-start gap-7">
                   <div className="self-stretch flex flex-col justify-start items-start gap-5">
                     <div data-state="Default" className="w-10 h-10 px-1.5 pt-3 bg-[#ffecb8] rounded-full inline-flex justify-center items-end overflow-hidden">
                       <div data-svg-wrapper className="relative">
@@ -38,7 +38,7 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-                <div className="flex-1 max-w-[690px] flex justify-start items-start gap-6">
+                <div className="w-full md:flex-1 max-w-[690px] grid grid-cols-2 sm:flex justify-start items-start gap-x-6 gap-y-10">
                   <div className="flex-1 inline-flex flex-col justify-start items-start gap-5">
                     <div className="self-stretch justify-start text-[#ffecb8] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">Main</div>
                     <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
@@ -102,7 +102,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="self-stretch px-10 py-3 bg-orange-100/5 flex flex-col justify-start items-center">
+          <div className="self-stretch px-4 sm:px-10 py-3 bg-orange-100/5 flex flex-col justify-start items-center">
             <div className="w-full max-w-[1200px] inline-flex justify-between items-center">
               <div className="justify-start text-[#ffecb8] text-sm font-normal font-['Cabin_Condensed'] leading-none tracking-wide">2025 © Siply</div>
               <div data-state="Default" className="flex justify-center items-center">
@@ -113,4 +113,4 @@ const Footer = () => {
         </div>
     )
 }
-export default Footer;
+export default Footer;

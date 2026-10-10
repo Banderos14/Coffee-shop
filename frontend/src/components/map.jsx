@@ -32,7 +32,7 @@ const locations = [
 
 export default function Map() {
   return (
-    <div className="w-[588px] h-[432px]  rounded-3xl overflow-hidden shadow-md z-0">
+    <div className="relative w-full lg:w-[48%] xl:w-[588px] lg:shrink-0 h-[300px] sm:h-[380px] lg:h-[432px] rounded-3xl overflow-hidden shadow-md z-0">
       <MapContainer center={[43.70018608260303, 7.261404645369542]} zoom={15} style={{ height: '100%', width: '100%' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.maptiler.com/">MapTiler</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
